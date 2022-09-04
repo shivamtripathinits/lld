@@ -42,22 +42,26 @@ class Game:
                 if all_cells[i][j] and all_cells[i][j].jump and all_cells[i][j].jump.start == curr_cell:
                     if all_cells[i][j].jump.type == "snake_bite":
                         self.snakes.append([all_cells[i][j].jump.start, all_cells[i][j].jump.end])
-                        print("snake at {} to {}".format(all_cells[i][j].jump.start, all_cells[i][j].jump.end))
+                        # print("snake at {} to {}".format(all_cells[i][j].jump.start,
+                        #                                  all_cells[i][j].jump.end))
                     else:
                         self.ladders.append([all_cells[i][j].jump.start, all_cells[i][j].jump.end])
-                        print("ladder at {} to {}".format(all_cells[i][j].jump.start, all_cells[i][j].jump.end))
+                        # print("ladder at {} to {}".format(all_cells[i][j].jump.start,
+                        #                                   all_cells[i][j].jump.end))
                 curr_cell += 1
-
+        print ("Snakes are at {}".format(self.snakes))
+        print("Ladders are at {}".format(self.ladders))
     def start_game(self):
         while self.winner is None:
             next_player = self.get_next_turn_player()
-            # input("{} press any key to roll ".format(next_player.id))
+            input("{} press enter to roll ".format(next_player.id))
             dice_number = self.dice.roll_dice()
             if next_player.current_position == 0 and dice_number != 6:
                 print("{} Unlucky Try again for 6 to open !".format(dice_number))
             else:
-                print("Score {} {} Moving from {} to {}".format(dice_number,next_player.id,  next_player.current_position,
-                                                       next_player.current_position + dice_number))
+                print("Score {} {} Moving from {} to {}".format(dice_number, next_player.id,
+                                                                next_player.current_position,
+                                                                next_player.current_position + dice_number))
                 next_player.current_position = next_player.current_position + dice_number
                 if next_player.current_position >= 100:
                     # print("inside")
@@ -77,8 +81,6 @@ class Game:
                     break
         print(self.winner.id, " is winner")
 
-
-
     def get_next_turn_player(self):
         next_player = self.players[0]
         del self.players[0]
@@ -86,6 +88,3 @@ class Game:
         return next_player
 
 
-g = Game(no_of_players=2)
-g.print_all_constants()
-g.start_game()
