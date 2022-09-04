@@ -25,7 +25,7 @@ class Board:
             if end >= start or end in already_used_cells or start in already_used_cells:
                 continue
             cell = self.get_cell(start)
-            cell.jump = Jump(start=start, end=end)
+            cell.jump = Jump(type="snake_bite", start=start, end=end)
             already_used_cells.add(start)
             already_used_cells.add(end)
             self.count_snake -= 1
@@ -35,7 +35,7 @@ class Board:
             if end <= start or end in already_used_cells or start in already_used_cells:
                 continue
             cell = self.get_cell(start)
-            cell.jump = Jump(start=start, end=end)
+            cell.jump = Jump(type="ladder", start=start, end=end)
             already_used_cells.add(start)
             already_used_cells.add(end)
             self.count_ladder -= 1
