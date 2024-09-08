@@ -1,5 +1,6 @@
 ### SOLID Principles : https://www.youtube.com/watch?v=XI7zep97c-Y&list=PL6W8uoQQ2c61X_9e6Net0WdYZidm7zooW&index=2
 
+System Design Book : ![System Design Book](./System%20Design%20Book/System%20Design.pdf)
 
 * S - Single Responsibility Principle : Each class should have single responsibility
 * O - Open/Closed Principle - Open for extension but closed for modification
